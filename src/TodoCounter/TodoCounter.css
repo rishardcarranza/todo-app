@@ -1,0 +1,12 @@
+.TodoCounter {
+    font-size: 1.5em;
+    text-align: center;
+    text-shadow: 1px 1px 2px #5bc0de;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.note-icon {
+    font-size: 2em;
+}

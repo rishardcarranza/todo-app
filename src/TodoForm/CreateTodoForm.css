@@ -1,0 +1,62 @@
+form {
+    width: 95%;
+    max-width: 350px;
+    background-color: #303246;
+    padding: 33px 40px;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+textarea {
+    font-family: 'Poppins';
+    background-color: #F9FBFC;
+    border: 2px, solid #202329;
+    border-radius: 2px;
+    box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.25);
+    color: #1E1E1F;
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
+    height: 96px;
+    width: calc(100%-25px);
+}
+
+textarea::placeholder {
+    color: #a5a5a5;
+    font-family: 'Poppins';
+    font-weight: 400;
+}
+
+textarea:focus {
+    outline-color: #61DAFA;
+}
+
+.TodoForm-buttonContainer {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.TodoForm-button {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.1em;
+    color: #202329;
+    font-weight: 400;
+    width: 120px;
+    height: 48px;
+    border-radius: 2px;
+    border: none;
+    font-family: 'Poppins';
+}
+
+.TodoForm-button--add {
+    background-color: #0089eb;
+    box-shadow: 0px 5px 25px rgba(97, 218, 250, 0.5);
+    color: white;
+}

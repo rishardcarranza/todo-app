@@ -1,0 +1,44 @@
+li.TodoItem {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-bottom: 1px solid #7c7c7c;
+    padding: 0 10px;
+    position: relative;
+}
+
+
+li.TodoItem:last-child {
+    border-bottom: none;
+}
+
+.Icon-check {
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.Icon-check--active {
+    font-size: 1.3em;
+    color: #158f15;
+}
+
+.Icon-delete {
+    right: 15px;
+    position: absolute;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.Icon-delete:hover {
+    color: #e30000;
+}
+
+.TodoItem-p {
+    font-size: 1.1em;
+}
+
+.TodoItem-p--complete {
+    text-decoration: line-through;
+    color: #7c7c7c;
+}

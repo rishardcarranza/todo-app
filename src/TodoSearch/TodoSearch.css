@@ -1,0 +1,13 @@
+.TodoSearch {
+    font-family: 'Poppins';
+    margin: 0 40px 0 40px;
+    height: 33px;
+    border-radius: 4px;
+    padding: 3px;
+    transition: .7s;
+    font-size: 1.1em;
+}
+
+.TodoSearch:focus {
+    outline-color: #5bc0de;
+}
