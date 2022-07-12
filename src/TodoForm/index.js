@@ -1,12 +1,10 @@
 import React from "react";
 import { BsXCircleFill, BsSave2Fill } from "react-icons/bs";
-import { TodoContext } from "../Context";
 import './CreateTodoForm.css';
 
 
-function TodoForm() {
+function TodoForm({ addTodo, setOpenModal }) {
     const [ newTodoValue, setNewTodoValue ] = React.useState('');
-    const { addTodo, setOpenModal } = React.useContext(TodoContext);
 
     const onChange = (event) => {
         setNewTodoValue(event.target.value);
