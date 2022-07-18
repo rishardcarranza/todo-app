@@ -31,9 +31,9 @@ function App() {
 
     return (
         <React.Fragment>
-        <TodoHeader>
-            <TodoCounter total={totalTodos} completed={completedTodos} loading={loading}/>
-            <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading}/>
+        <TodoHeader loading={loading}>
+            <TodoCounter total={totalTodos} completed={completedTodos}/>
+            <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
         </TodoHeader>
 
         <TodoList
