@@ -10,3 +10,7 @@
 .note-icon {
     font-size: 2em;
 }
+
+.TodoCounter--loading {
+    opacity: 25%;
+}

@@ -6,7 +6,7 @@ function TodoLoading(props) {
     return (
         <ContentLoader 
             speed={2}
-            width={400}
+            width={650}
             height={75}
             viewBox="0 0 350 50"
             backgroundColor="#303246"

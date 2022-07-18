@@ -6,12 +6,12 @@ function TodoList(props) {
         <section className="TodoList">
             {props.error && props.onError()}
             {props.loading && props.onLoading()}
-            {(!props.loading && props.searchedTodos.length === 0) && props.onEmptyTodos()}
+            
+            {(!props.loading && props.totalTodos == 0) && props.onEmptyTodos()}
+            {(props.totalTodos > 0 && props.searchedTodos.length == 0) && props.onEmptySearch(props.searchText)}
 
-            {props.searchedTodos.map(props.render)}
-            <ul>
-                {props.children}
-            </ul>
+            {props.searchedTodos.map(props.render || props.children)}
+            
         </section>
     );
 }

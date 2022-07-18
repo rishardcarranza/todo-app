@@ -1,6 +1,7 @@
 import React from "react";
 import { useTodos } from "./useTodos";
 import { GoThumbsup } from "react-icons/go";
+import { GoStop } from "react-icons/go";
 import { TodoHeader } from "../TodoHeader";
 import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
@@ -31,18 +32,21 @@ function App() {
     return (
         <React.Fragment>
         <TodoHeader>
-            <TodoCounter total={totalTodos} completed={completedTodos}/>
-            <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue}/>
+            <TodoCounter total={totalTodos} completed={completedTodos} loading={loading}/>
+            <TodoSearch searchValue={searchValue} setSearchValue={setSearchValue} loading={loading}/>
         </TodoHeader>
 
         <TodoList
             error={error}
             loading={loading}
+            totalTodos={totalTodos}
             searchedTodos={searchedTodos}
+            searchText={searchValue}
 
             onError={() => <li className="TodoItem"><p>Hubo un error!</p></li>}
             onLoading={() => new Array(4).fill(1).map((element, i) => <TodoLoading key={i}></TodoLoading>)}
             onEmptyTodos={() => <li className="TodoItem"><p><GoThumbsup /> ¡Hurra! No tienes ninguna tarea por ahora.</p></li>}
+            onEmptySearch={(searchText) => <li className="TodoItem"><p><GoStop /> La búsqueda no retorno ningún registro para {searchText}.</p></li>}
 
             render={todo => (
                     <TodoItem 
@@ -53,22 +57,17 @@ function App() {
                         onDelete={() => deleteTodo(todo.text)}
                         />
                     )}
-        />
-
-        {/* <TodoList>
-            {error && <li className="TodoItem"><p>Hubo un error!</p></li>}
-            {loading && new Array(4).fill(1).map((element, i) => <TodoLoading key={i}></TodoLoading> )}
-            {(!loading && searchedTodos.length === 0) && <li className="TodoItem"><p><GoThumbsup /> ¡Hurra! No tienes ninguna tarea por ahora.</p></li>}
-            {searchedTodos.map(todo => (
-            <TodoItem 
-                key={todo.text}
-                text={todo.text}
-                completed={todo.completed}
-                onComplete={() => toggleCompleteTodo(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
-                />
-            ))}
-        </TodoList> */}
+        >
+            {/* {todo => (
+                <TodoItem 
+                    key={todo.text}
+                    text={todo.text}
+                    completed={todo.completed}
+                    onComplete={() => toggleCompleteTodo(todo.text)}
+                    onDelete={() => deleteTodo(todo.text)}
+                    />
+            )} */}
+        </TodoList> 
         
         <CreateTodoButton openModal={openModal} setOpenModal={setOpenModal}/>
 
