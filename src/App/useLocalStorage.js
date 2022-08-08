@@ -1,6 +1,7 @@
 import React from 'react';
 
 function useLocalStorage(itemName, initialValue) {
+  const [synchronizedItem, setSynchronizedItem] = React.useState(true);
   const [error, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
@@ -20,11 +21,12 @@ function useLocalStorage(itemName, initialValue) {
 
           setItem(storageItem);
           setLoading(false);
+          setSynchronizedItem(true);
       } catch(error) {
         setError(error);
       }
     }, 1000);
-  });
+  }, [synchronizedItem]);
 
     const saveAndStorageItem = (newItem) => {
       try {
@@ -34,12 +36,18 @@ function useLocalStorage(itemName, initialValue) {
         setError(error);
       }
     }
+
+    const synchronizedInfo = () => {
+      setLoading(true);
+      setSynchronizedItem(false);
+    }
   
     return {
       item,
       saveAndStorageItem,
       loading,
       error,
+      synchronizedInfo,
     };
   
   }

@@ -6,6 +6,7 @@ function useTodos() {
     const {
         item: todos,
         saveAndStorageItem: saveAndStorageTodos,
+        synchronizedInfo,
         loading,
         error
     } = useLocalStorage('TODOS_V1', []); // Custom Hook
@@ -60,6 +61,7 @@ function useTodos() {
         deleteTodo,
         openModal,
         setOpenModal,
+        synchronizedInfo,
     };
 }
 
